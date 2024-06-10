@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Aplicacion Medico Especialista</title>
+		<meta charset="utf8">
+		<link rel="stylesheet" type="text/css" href="estilo_rpc.css">
+		<style>
+            .seccion{display: none;}
+            .activa{display: block;}
+        </style>
+	</head>
+
+<body>
+	<script src="rest.js"></script> 
+	<script src="rpc.js"></script>
+	<script src="main.js"></script>
+
+	<div id="login_me" class="seccion activa">
+		<h1>Acceso</h1>
+		<p><label for="loginME">Usuario:</label><input id="loginME" type="text"</p>
+		<p><label for="passwordME">Contraseña:</label><input id="passwordME" type="password"</p>
+		<p><button onclick="entrar()">Entrar</button></p>
+        <p><button onclick="registrarse()">Registrarse</button></p>
+	</div>
+
+	<div id="menu_principal" class="seccion">
+		<h1>Inicio</h1>
+		<h2>Bienvenido/a <span id="nombre_doctor_ME"></span></h2><button onclick="modificar_datos_me()">Editar datos</button>
+		<p><button onclick="asignar_expediente()">Asignar Expediente</button></p>
+        <p><button onclick="mostrar_expedientes_asignados()">Mostrar expedientes asignados</button></p>
+		<p><button onclick="volver_login()">Salir</button></p>
+	</div>
+
+	<div id="registro_nuevo_ME" class="seccion">
+		<h1>Registro</h1>
+		<p><label for="nombre">Nombre:</label><input id="nombre" type="text"</p>
+		<p><label for="apellidos">Apellidos:</label><input id="apellidos" type="text"</p>
+		<p><label for="loginME1">Login:</label><input id="loginME1" type="text"</p>
+		<p><label for="passwordME1">Contraseña:</label><input id="passwordME1" type="text"</p>
+		<p>Centro:
+			<select name='centros' id='centros'></select>
+		</p>
+		<p>Especialidad:
+			<select name='especialidad' id='especialidad'></select>
+		</p>
+		<p><button onclick="guardar_nuevo_me()">Guardar</button></p>
+        <p><button onclick="boton_volver_login()">Cancelar</button></p>
+	</div>
+
+	<div id="cambiar_datos_me" class="seccion">
+		<h1>DATOS MÉDICO</h1>
+		<h3>Modifique lo deseado</h3>
+		<p><label for="nombre1">Nombre:</label><input id="nombre1" type="text"/></p>
+		<p><label for="apellidos1">Apellidos:</label><input id="apellidos1" type="text"/></p>
+		<p><label for="loginME2">Login:</label><input id="loginME2" type="text"/></p>
+		<p><label for="passwordME2">Contraseña:</label><input id="passwordME2" type="text"/></p>
+		<p>Centro:
+			<select name='centros1' id='centros1'></select>
+		</p>
+		<p>Especialidad:
+			<select name='especialidad1' id='especialidad1'></select>
+		</p>
+
+		<p><button onclick="guardar_datos_modificados()">Guardar</button></p>
+		<p><button onclick="boton_volver_inicio()">Cancelar</button></p>
+	</div>
+
+	<div id="asignar_expediente" class="seccion">
+		<h1>ASIGNAR EXPEDIENTE</h1>
+		<h3>Listado de expedientes:</h3>
+		<div id="lista_expedientes"></div>
+		<p><button onclick="boton_volver_menuP()">Volver</button></p>
+
+	</div>
+
+	<div id="expediente_asignado" class="seccion">
+		<h1>EXPEDIENTE</h1>
+		<p><label for ="id1">ID:</label><input id = "id1" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "medEsp">Med.Esp.:</label><input id="medEsp" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p>Especialidad:
+			<select name='especialidades2' id='especialidades2'></select>
+		</p>
+		<p><label for = "sip">SIP:</label><input id="sip" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "nombrenuevoexp">Nombre:</label><input id="nombrenuevoexp" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "apellidosnuevoexp">Apellidos:</label><input id="apellidosnuevoexp" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "fnacimientonuevoexp">Fecha Nacimiento:</label><input id="fnacimientonuevoexp" type="date" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "genero">Genero:</label><input id="genero" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+
+		</select>
+		<p><label for = "observaciones">Observaciones:</label><input id="observaciones" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "solicitud">Solicitud:</label><input id="solicitud" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "respuesta">Respuesta:</label><input id="respuesta" type="text" readonly style= "cursor: not-allowed;"/></p>
+		<p><label for = "fsolicitud">F.Solicitud:</label><input id="fsolicitud" type="datetime"readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "fasignacion">F.Asignacion:</label><input id="fasignacion" type="datetime" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "fresolucion">F.Resolucion:</label><input id="fresolucion" type="datetime" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+
+		<p><button onclick="boton_volver_listado()">Volver al listado</button></p>
+		
+	</div>
+
+	<div id="expedientes_asignados" class="seccion">
+		<h1>EXPEDIENTES ASIGNADOS</h1>
+		<h3>Listado de expedientes:</h3>
+		<div id="lista_expedientes_asignados"></div>
+		<p><button onclick="boton_volver_menuP()">Volver</button></p>
+	</div>
+
+	<div id="ver_expediente_asignado" class="seccion">
+		<h1>EXPEDIENTE</h1>
+		<p><label for ="id2">ID:</label><input id = "id2" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "medEsp1">Med.Esp.:</label><input id="medEsp1" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p>Especialidad:
+			<select name='especialidades3' id='especialidades3'></select>
+		</p>
+		<p><label for = "sip1">SIP:</label><input id="sip1" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "nombre2">Nombre:</label><input id="nombre2" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "apellidos2">Apellidos:</label><input id="apellidos2" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "fnacimiento2">Fecha Nacimiento:</label><input id="fnacimiento2" type="date" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "genero2">Genero:</label><input id="genero2" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+
+		</select>
+		<p><label for = "observaciones2">Observaciones:</label><input id="observaciones2" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "solicitud2">Solicitud:</label><input id="solicitud2" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "respuesta2">Respuesta:</label><input id="respuesta2" type="text"/></p>
+		<p><label for = "fsolicitud2">F.Solicitud:</label><input id="fsolicitud2" type="datetime"readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "fasignacion2">F.Asignacion:</label><input id="fasignacion2" type="datetime" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+		<p><label for = "fresolucion2">F.Resolucion:</label><input id="fresolucion2" type="datetime" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+
+		<p><button onclick="resolverExpediente()">Resolver</button></p>
+		<p><button onclick="boton_volver_listado2()">Volver al listado</button></p>
+	</div>
+
+	<div id="chat_me" class="seccion">
+        <h1>Chat para enviar mensajes a un MAP.</h1>
+        <h3>Listado de mensajes:</h3>
+        <ul id="mensajes"></ul>
+        <!-- Cuadro de texto para escribir un nuevo mensaje -->
+        <input type="text" id="mensajeEnviado" placeholder="Escribe un mensaje...">
+        <!-- Botón de enviar -->
+        <button onclick="enviarMensaje()">Enviar</button>
+		<button onclick="volveratras()">Salir del Chat</button>
+    </div>
+
+	<div id="chat_me2" class="seccion">
+        <h1>Chat para enviar mensajes a un MAP.</h1>
+        <h3>Listado de mensajes:</h3>
+        <ul id="mensajes1"></ul>
+        <!-- Cuadro de texto para escribir un nuevo mensaje -->
+        <input type="text" id="mensajeEnviado1" placeholder="Escribe un mensaje...">
+        <!-- Botón de enviar -->
+        <button onclick="enviarMensaje1()">Enviar</button>
+		<button onclick="volveratras1()">Salir del Chat</button>
+    </div>
+</body>
+</html>
