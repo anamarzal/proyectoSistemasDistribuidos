@@ -1,0 +1,173 @@
+{
+    "especialidades":[
+        {"id": 1, "nombre": "Cardiologia"},
+        {"id": 2, "nombre": "Dermatologia"}
+    ],
+
+    "centros":[
+        {"id": 1, "nombre": "Hospital Alicante"},
+        {"id": 2, "nombre": "Hospital La Fe"},
+        {"id": 3, "nombre": "Hospital San Juan"}
+    ],
+
+    "medicos":[
+        {"id": 1, "nombre": "Marina", "apellidos": "Garcia", "login": "map1", "password": "map1", "especialidad": 0, "centro":1},
+        {"id": 2, "nombre": "Maria", "apellidos": "Sanchez", "login": "map2", "password": "map2", "especialidad": 0, "centro":2},
+        {"id": 3, "nombre": "Isa", "apellidos": "Vicente", "login": "me1", "password": "me1", "especialidad": 1, "centro":3},
+        {"id": 4, "nombre": "Daniela", "apellidos": "Fernanadez", "login": "me2", "password": "me2", "especialidad": 1, "centro":1},
+        {"id": 5, "nombre": "Concha", "apellidos": "Ros", "login": "me3", "password": "me3", "especialidad": 2, "centro":2},
+        {"id": 6, "nombre": "Ana", "apellidos": "Minana", "login": "me4", "password": "me4", "especialidad": 2, "centro":2}
+    ],
+
+    "expedientes":[
+        {
+            "id": 1,
+            "map": 1,
+            "me": 0,
+            "especialidad": 1,
+            "sip": "123456789",
+            "nombre": "Daniela",
+            "apellidos": "Garcia Gonzalez ",
+            "fecha_nacimiento": "2005-07-23",
+            "genero": "M",
+            "observaciones": "",
+            "solicitud": "Necesidad consulta",
+            "respuesta": "",
+            "fecha_creacion": "2023-11-02T12:30:03Z",
+            "fecha_asignacion": "",
+            "fecha_resolucion": ""
+          },
+
+          {
+            "id": 2,
+            "map": 1,
+            "me": 0,
+            "especialidad": 2,
+            "sip": "123456789",
+            "nombre": "Maria",
+            "apellidos": "Garcia Gonzalez ",
+            "fecha_nacimiento": "2001-03-04",
+            "genero": "M",
+            "observaciones": "Progesa adecuadamente",
+            "solicitud": "Necesidad consulta",
+            "respuesta": "",
+            "fecha_creacion": "2023-03-20T09:17:20Z",
+            "fecha_asignacion": "",
+            "fecha_resolucion": ""
+          }, 
+
+          {
+            "id": 3,
+            "map": 1,
+            "me": 3,
+            "especialidad": 1,
+            "sip": "123456789",
+            "nombre": "Juana",
+            "apellidos": "Garcia Gonzalez ",
+            "fecha_nacimiento": "2002-02-23",
+            "genero": "M",
+            "observaciones": "Progesa adecuadamente",
+            "solicitud": "Necesidad consulta",
+            "respuesta": "",
+            "fecha_creacion": "2023-11-02T12:30:03Z",
+            "fecha_asignacion": "2023-11-05T15:30:03Z",
+            "fecha_resolucion": ""
+          },
+
+          {
+            "id": 4,
+            "map": 1,
+            "me": 5,
+            "especialidad": 2,
+            "sip": "123456789",
+            "nombre": "Lola",
+            "apellidos": "Gomez Fernandez ",
+            "fecha_nacimiento": "1980-02-23",
+            "genero": "M",
+            "observaciones": "Tiene bulto pecho",
+            "solicitud": "Necesidad consulta",
+            "respuesta": "",
+            "fecha_creacion": "2023-11-02T12:30:03Z",
+            "fecha_asignacion": "2023-12-10T14:44:03Z",
+            "fecha_resolucion": ""
+          },
+
+          {
+            "id": 5,
+            "map": 2,
+            "me": 0,
+            "especialidad": 1,
+            "sip": "123456789",
+            "nombre": "Patricia",
+            "apellidos": "Gomez Lopez ",
+            "fecha_nacimiento": "1999-01-17",
+            "genero": "M",
+            "observaciones": "Tiene mancha piel",
+            "solicitud": "Necesidad consulta",
+            "respuesta": "",
+            "fecha_creacion": "2023-11-02T12:30:03Z",
+            "fecha_asignacion": "",
+            "fecha_resolucion": ""
+          },
+
+          {
+            "id": 6,
+            "map": 2,
+            "me": 0,
+            "especialidad": 2,
+            "sip": "123456789",
+            "nombre": "Carlos",
+            "apellidos": "Minana Cloquell ",
+            "fecha_nacimiento": "1997-12-24",
+            "genero": "H",
+            "observaciones": "Tiene dolor de pecho",
+            "solicitud": "Necesidad consulta",
+            "respuesta": "",
+            "fecha_creacion": "2023-11-02T12:30:03Z",
+            "fecha_asignacion": "",
+            "fecha_resolucion": ""
+          },
+
+          {
+            "id": 7,
+            "map": 2,
+            "me": 4,
+            "especialidad": 1,
+            "sip": "123456789",
+            "nombre": "Daniel",
+            "apellidos": "Fernandez Minana ",
+            "fecha_nacimiento": "2003-10-23",
+            "genero": "H",
+            "observaciones": "",
+            "solicitud": "Necesidad consulta",
+            "respuesta": "",
+            "fecha_creacion": "2023-11-02T12:30:03Z",
+            "fecha_asignacion": "2023-11-16T09:12:06Z",
+            "fecha_resolucion": ""
+          },
+
+          {
+            "id": 8,
+            "map": 2,
+            "me": 6,
+            "especialidad": 2,
+            "sip": "123456789",
+            "nombre": "Juan",
+            "apellidos": "Gomez Garcia ",
+            "fecha_nacimiento": "1970-04-12",
+            "genero": "H",
+            "observaciones": "Tiene bulto pecho",
+            "solicitud": "Necesidad consulta",
+            "respuesta": "",
+            "fecha_creacion": "2023-11-02T12:30:03Z",
+            "fecha_asignacion": "2023-11-23T17:30:03Z",
+            "fecha_resolucion": ""
+          }
+
+
+
+
+    ]
+
+
+}
