@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aplicacion Medico Atencion Primaria</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="estilo.css">
+    <style>
+        .seccion{display: none;}
+        .activa{display: block;}
+    </style>
+    </head>
+    <body>
+        <script src="rest.js"></script>
+        <script src="main.js"></script>
+        
+
+        <div id="login_map" class="seccion activa">
+            <h1>Acceso</h1>
+            <p><label for="login">Usuario:</label><input id="login" type="text"/></p>
+            <p><label for="password">Contraseña:</label><input id="password" type="password"/></p>
+            <button onclick="entrar()">Entrar</button>
+            <button onclick="registrarse()">Registrarse</button>
+
+        </div>
+
+        <div id="menu_principal" class="seccion">
+            <h1>Inicio</h1>
+            <h2>Bienvenido/a <span id="nombre_menu"></span></h2><button onclick="modificar_datos_map()">Editar datos</button>
+            <div id="datos_map"></div>
+            <h3>Listado de expedientes:</h3>
+            <div id="lista_expedientes"></div>
+            <p><button onclick="boton_crear_nuevo_expediente()">Nuevo expediente</button></p>
+            <p><button onclick="boton_volver_login()">Salir</button></p>
+            <p><button onclick="boton_estadisticas()">Estadistica</button></p>
+        </div>
+
+        <div id="registro_nuevo_medico" class="seccion">
+            <h1>DATOS MÉDICO</h1>
+            <p><label for="nombre">Nombre:</label><input id="nombre" type="text"/></p>
+            <p><label for="apellidos">Apellidos:</label><input id="apellidos" type="text"/></p>
+            <p><label for="log">Login:</label><input id="log" type="text"/></p>
+            <p><label for="pass">Contraseña:</label><input id="pass" type="text"/></p>
+            <p>Centro:
+                <select name='centros' id='centros'></select>
+            </p>
+            <p><button onclick="guardar_nuevo_map()">Guardar</button></p>
+            <p><button onclick="boton_volver_login()">Cancelar</button></p>
+
+
+        </div>
+
+        <div id="nuevo_expediente" class="seccion">
+            <h1>EXPEDIENTE</h1>
+            <p><label for ="id">ID:</label><input id = "id" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+            <p><label for = "medEsp">Med.Esp.:</label><input id="medEsp" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+            <p>Especialidad:
+                <select name='especialidades' id='especialidades'></select>
+            </p>
+            <p><label for = "sip">SIP:</label><input id="sip" type="text"/></p>
+            <p><label for = "nombrenuevoexp">Nombre:</label><input id="nombrenuevoexp" type="text"/></p>
+            <p><label for = "apellidosnuevoexp">Apellidos:</label><input id="apellidosnuevoexp" type="text"/></p>
+            <p><label for = "fnacimientonuevoexp">Fecha Nacimiento:</label><input id="fnacimientonuevoexp" type="date"/></p>
+            <p>Genero:</p>
+            <select id="genero">
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+            </select>
+            <p><label for = "observaciones">Observaciones:</label><input id="observaciones" type="text"/></p>
+            <p><label for = "solicitud">Solicitud:</label><input id="solicitud" type="text"/></p>
+            <p><label for = "respuesta">Respuesta:</label><input id="respuesta" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+            <p><label for = "fsolicitud">F.Solicitud:</label><input id="fsolicitud" type="datetime" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+            <p><label for = "fasignacion">F.Asignacion:</label><input id="fasignacion" type="datetime" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+            <p><label for = "fresolucion">F.Resolucion:</label><input id="fresolucion" type="datetime" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+
+            <p><button onclick="guardar_nuevo_expediente()">Guardar</button></p>
+            <p><button onclick="boton_volver_inicio_medico()">Volver</button></p>
+            
+        </div>
+
+        <div id="cambiar_datos_map" class="seccion">
+            <h1>DATOS MÉDICO</h1>
+            <h3>Modifique lo deseado</h3>
+            <p><label for="nombre1">Nombre:</label><input id="nombre1" type="text"/></p>
+            <p><label for="apellidos1">Apellidos:</label><input id="apellidos1" type="text"/></p>
+            <p><label for="log1">Login:</label><input id="log1" type="text"/></p>
+            <p><label for="pass1">Contraseña:</label><input id="pass1" type="text"/></p>
+            <p>Centro:
+                <select name='centros1' id='centros1'></select>
+            </p>
+            <p><button onclick="guardar_datos_modificados()">Guardar</button></p>
+            <p><button onclick="boton_volver_inicio()">Cancelar</button></p>
+        </div>
+
+        <div id="cambiar_datos_expediente" class="seccion">
+            <h1>EXPEDIENTE</h1>
+            <h3>Haga los cambios necesarios</h3>
+            <p><label for ="id1">ID:</label><input id = "id1" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+            <p><label for = "medEsp1">Med.Esp.:</label><input id="medEsp1" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+            <p>Especialidad:
+                <select name='especialidades1' id='especialidades1'></select>
+            </p>
+            <p><label for = "sip1">SIP:</label><input id="sip1" type="text"/></p>
+            <p><label for = "nombrenuevoexp1">Nombre:</label><input id="nombrenuevoexp1" type="text"/></p>
+            <p><label for = "apellidosnuevoexp1">Apellidos:</label><input id="apellidosnuevoexp1" type="text"/></p>
+            <p><label for = "fnacimientonuevoexp1">Fecha Nacimiento:</label><input id="fnacimientonuevoexp1" type="date"/></p>
+            <p>Genero:</p>
+            <select id="genero1">
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+            </select>
+            <p><label for = "observaciones1">Observaciones:</label><input id="observaciones1" type="text"/></p>
+            <p><label for = "solicitud1">Solicitud:</label><input id="solicitud1" type="text"/></p>
+            <p><label for = "respuesta1">Respuesta:</label><input id="respuesta1" type="text" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+            <p><label for = "fsolicitud1">F.Solicitud:</label><input id="fsolicitud1" type="datetime" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+            <p><label for = "fasignacion1">F.Asignacion:</label><input id="fasignacion1" type="datetime" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+            <p><label for = "fresolucion1">F.Resolucion:</label><input id="fresolucion1" type="datetime" readonly style="background-color: #a7a7b2; cursor: not-allowed;"/></p>
+
+            <p><button onclick="guardar_cambios_expediente()">Guardar</button></p>
+            <p><button onclick="boton_volver_inicio_medico()">Volver</button></p>
+            
+        </div>
+
+        <div id="chat_map" class="seccion">
+            <h1>Chat para enviar mensajes a un ME.</h1>
+            <h3>Listado de mensajes:</h3>
+            <ul id="mensajes1"></ul>
+            <!-- Cuadro de texto para escribir un nuevo mensaje -->
+            <input type="text" id="mensajeEnviado" placeholder="Escribe un mensaje...">
+            <!-- Botón de enviar -->
+            <button onclick="enviarMensaje()">Enviar</button>
+            <button onclick="volveratras()">Salir del Chat</button>
+        </div>
+
+ 
+
+
+    </body>
+</html>
